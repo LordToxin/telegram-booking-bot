@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  booking-bot:
+    build: .
+    container_name: telegram_booking_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - booking_data:/app/data
+
+volumes:
+  booking_data:
+    driver: local
